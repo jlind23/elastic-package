@@ -1,0 +1,174 @@
+{
+    "attributes": {
+        "description": "IPFS Node dashboard that will render a standard dashboard for your custom integration",
+        "hits": 0,
+        "kibanaSavedObjectMeta": {
+            "searchSourceJSON": {
+                "filter": [],
+                "query": {
+                    "language": "kuery",
+                    "query": ""
+                }
+            }
+        },
+        "optionsJSON": {
+            "hidePanelTitles": false,
+            "syncColors": false,
+            "useMargins": true
+        },
+        "panelsJSON": [
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-current-indexpattern",
+                                "type": "index-pattern"
+                            },
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-2c10678e-903d-4880-9ef0-78d8f83ae890",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "state": {
+                            "datasourceStates": {
+                                "indexpattern": {
+                                    "layers": {
+                                        "2c10678e-903d-4880-9ef0-78d8f83ae890": {
+                                            "columnOrder": [
+                                                "6167b28f-4a96-4783-8850-1885b6a9a81f",
+                                                "cbba19c6-1a2a-4113-918e-13e4cdffa4fc"
+                                            ],
+                                            "columns": {
+                                                "6167b28f-4a96-4783-8850-1885b6a9a81f": {
+                                                    "dataType": "date",
+                                                    "isBucketed": true,
+                                                    "label": "@timestamp",
+                                                    "operationType": "date_histogram",
+                                                    "params": {
+                                                        "interval": "auto"
+                                                    },
+                                                    "scale": "interval",
+                                                    "sourceField": "@timestamp"
+                                                },
+                                                "cbba19c6-1a2a-4113-918e-13e4cdffa4fc": {
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Count of records",
+                                                    "operationType": "count",
+                                                    "scale": "ratio",
+                                                    "sourceField": "Records"
+                                                }
+                                            },
+                                            "incompleteColumns": {}
+                                        }
+                                    }
+                                }
+                            },
+                            "filters": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": ""
+                            },
+                            "visualization": {
+                                "axisTitlesVisibilitySettings": {
+                                    "x": true,
+                                    "yLeft": true,
+                                    "yRight": true
+                                },
+                                "fittingFunction": "None",
+                                "gridlinesVisibilitySettings": {
+                                    "x": true,
+                                    "yLeft": true,
+                                    "yRight": true
+                                },
+                                "labelsOrientation": {
+                                    "x": 0,
+                                    "yLeft": 0,
+                                    "yRight": 0
+                                },
+                                "layers": [
+                                    {
+                                        "accessors": [
+                                            "cbba19c6-1a2a-4113-918e-13e4cdffa4fc"
+                                        ],
+                                        "layerId": "2c10678e-903d-4880-9ef0-78d8f83ae890",
+                                        "layerType": "data",
+                                        "position": "top",
+                                        "seriesType": "bar_stacked",
+                                        "showGridlines": false,
+                                        "xAccessor": "6167b28f-4a96-4783-8850-1885b6a9a81f"
+                                    }
+                                ],
+                                "legend": {
+                                    "isVisible": true,
+                                    "position": "right"
+                                },
+                                "preferredSeriesType": "bar_stacked",
+                                "tickLabelsVisibilitySettings": {
+                                    "x": true,
+                                    "yLeft": true,
+                                    "yRight": true
+                                },
+                                "valueLabels": "hide",
+                                "yLeftExtent": {
+                                    "mode": "full"
+                                },
+                                "yRightExtent": {
+                                    "mode": "full"
+                                }
+                            }
+                        },
+                        "title": "",
+                        "type": "lens",
+                        "visualizationType": "lnsXY"
+                    },
+                    "enhancements": {}
+                },
+                "gridData": {
+                    "h": 15,
+                    "i": "e9f6e74d-c32c-49d8-8475-c873bebfd848",
+                    "w": 24,
+                    "x": 0,
+                    "y": 0
+                },
+                "panelIndex": "e9f6e74d-c32c-49d8-8475-c873bebfd848",
+                "type": "lens",
+                "version": "7.15.0-SNAPSHOT"
+            }
+        ],
+        "timeRestore": false,
+        "title": "IPFS Node dashboard",
+        "version": 1
+    },
+    "coreMigrationVersion": "7.15.0",
+    "id": "ipfs_node-f285c260-212d-11ec-ab54-29ec3f292106",
+    "migrationVersion": {
+        "dashboard": "7.15.0"
+    },
+    "references": [
+        {
+            "id": "logs-*",
+            "name": "e9f6e74d-c32c-49d8-8475-c873bebfd848:indexpattern-datasource-current-indexpattern",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "e9f6e74d-c32c-49d8-8475-c873bebfd848:indexpattern-datasource-layer-2c10678e-903d-4880-9ef0-78d8f83ae890",
+            "type": "index-pattern"
+        },
+        {
+            "id": "ipfs_node-6a5118a0-212c-11ec-ab54-29ec3f292106",
+            "name": "tag-6a5118a0-212c-11ec-ab54-29ec3f292106",
+            "type": "tag"
+        },
+        {
+            "id": "ipfs_node-f1d2c610-212d-11ec-ab54-29ec3f292106",
+            "name": "tag-f1d2c610-212d-11ec-ab54-29ec3f292106",
+            "type": "tag"
+        }
+    ],
+    "type": "dashboard"
+}

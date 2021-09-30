@@ -1,0 +1,16 @@
+---
+description: Pipeline for processing sample logs
+processors:
+ - set:
+     field: ecs.version
+     value: '1.11.0'
+ - trim:
+     field: message
+ - drop:
+     description: 'Drop if the log message is empty'
+     if: ctx.message == ''
+on_failure:
+ - set:
+     field: error.message
+     value: '{{ _ingest.on_failure_message }}'
+

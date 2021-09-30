@@ -1,0 +1,69 @@
+{
+    "@timestamp": "2021-09-29T09:22:05.725Z",
+    "agent": {
+        "ephemeral_id": "9ff54e20-0fef-4844-820c-d8c06dd8d613",
+        "hostname": "docker-fleet-agent",
+        "id": "438ddfc4-bb88-48a2-957d-2bf82b18a734",
+        "name": "docker-fleet-agent",
+        "type": "metricbeat",
+        "version": "7.15.0"
+    },
+    "data_stream": {
+        "dataset": "ipfs_node.traffic",
+        "namespace": "ep",
+        "type": "metrics"
+    },
+    "ecs": {
+        "version": "1.11.0"
+    },
+    "elastic_agent": {
+        "id": "438ddfc4-bb88-48a2-957d-2bf82b18a734",
+        "snapshot": true,
+        "version": "7.15.0"
+    },
+    "event": {
+        "agent_id_status": "verified",
+        "dataset": "ipfs_node.traffic",
+        "duration": 1604634,
+        "ingested": "2021-09-29T09:22:09Z",
+        "module": "http"
+    },
+    "host": {
+        "architecture": "x86_64",
+        "containerized": true,
+        "hostname": "docker-fleet-agent",
+        "id": "6505f7ca36739e7eb909bdb52bf3ec18",
+        "ip": [
+            "172.18.0.4"
+        ],
+        "mac": [
+            "02:42:ac:12:00:04"
+        ],
+        "name": "docker-fleet-agent",
+        "os": {
+            "codename": "Core",
+            "family": "redhat",
+            "kernel": "5.10.47-linuxkit",
+            "name": "CentOS Linux",
+            "platform": "centos",
+            "type": "linux",
+            "version": "7 (Core)"
+        }
+    },
+    "http": {
+        "traffic": {
+            "RateIn": 1155.4079954492045,
+            "RateOut": 3.202044009523675,
+            "TotalIn": 201352,
+            "TotalOut": 39255
+        }
+    },
+    "metricset": {
+        "name": "json",
+        "period": 10000
+    },
+    "service": {
+        "address": "http://elastic-package-service_ipfs_node_1:5001/api/v0/stats/bw",
+        "type": "http"
+    }
+}

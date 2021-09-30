@@ -1,0 +1,11 @@
+title: "Repository"
+type: metrics
+streams:
+  - input: http/metrics
+    title: Repository metrics
+    description: Collect sample metrics
+    vars:
+      - name: period
+        type: text
+        title: Period
+        default: 10s

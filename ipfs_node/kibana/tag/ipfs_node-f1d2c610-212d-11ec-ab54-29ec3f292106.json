@@ -1,0 +1,11 @@
+{
+    "attributes": {
+        "color": "#e20b7f",
+        "description": "",
+        "name": "ipfs-node"
+    },
+    "coreMigrationVersion": "7.15.0",
+    "id": "ipfs_node-f1d2c610-212d-11ec-ab54-29ec3f292106",
+    "references": [],
+    "type": "tag"
+}

@@ -1,0 +1,8 @@
+metricsets: ["json"]
+hosts:
+{{#each hosts}}
+  - {{this}}/api/v0/stats/bw
+{{/each}}
+period: {{period}}
+method: "POST"
+namespace: "traffic"

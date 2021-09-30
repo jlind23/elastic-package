@@ -1,0 +1,11 @@
+{
+    "attributes": {
+        "color": "#d7ee1d",
+        "description": "",
+        "name": "elastic-package"
+    },
+    "coreMigrationVersion": "7.15.0",
+    "id": "ipfs_node-6a5118a0-212c-11ec-ab54-29ec3f292106",
+    "references": [],
+    "type": "tag"
+}

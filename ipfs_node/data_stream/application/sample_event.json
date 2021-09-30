@@ -1,0 +1,62 @@
+{
+    "@timestamp": "2021-09-29T09:20:33.777Z",
+    "agent": {
+        "ephemeral_id": "32cb6eb3-8df8-47ca-9cf4-2f13e86a3b95",
+        "hostname": "docker-fleet-agent",
+        "id": "438ddfc4-bb88-48a2-957d-2bf82b18a734",
+        "name": "docker-fleet-agent",
+        "type": "filebeat",
+        "version": "7.15.0"
+    },
+    "data_stream": {
+        "dataset": "ipfs_node.application",
+        "namespace": "ep",
+        "type": "logs"
+    },
+    "ecs": {
+        "version": "1.11.0"
+    },
+    "elastic_agent": {
+        "id": "438ddfc4-bb88-48a2-957d-2bf82b18a734",
+        "snapshot": true,
+        "version": "7.15.0"
+    },
+    "event": {
+        "agent_id_status": "verified",
+        "dataset": "ipfs_node.application",
+        "ingested": "2021-09-29T09:20:37Z",
+        "timezone": "+00:00"
+    },
+    "host": {
+        "architecture": "x86_64",
+        "containerized": true,
+        "hostname": "docker-fleet-agent",
+        "id": "6505f7ca36739e7eb909bdb52bf3ec18",
+        "ip": [
+            "172.18.0.4"
+        ],
+        "mac": [
+            "02:42:ac:12:00:04"
+        ],
+        "name": "docker-fleet-agent",
+        "os": {
+            "codename": "Core",
+            "family": "redhat",
+            "kernel": "5.10.47-linuxkit",
+            "name": "CentOS Linux",
+            "platform": "centos",
+            "type": "linux",
+            "version": "7 (Core)"
+        }
+    },
+    "input": {
+        "type": "log"
+    },
+    "log": {
+        "file": {
+            "path": "/tmp/service_logs/ipfs-node-0.log"
+        },
+        "offset": 0
+    },
+    "message": "Changing user to ipfs"
+}

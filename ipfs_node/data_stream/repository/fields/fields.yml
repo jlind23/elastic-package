@@ -1,0 +1,19 @@
+- name: http.repository.NumObjects
+  type: long
+  description: Number of objects in the repository
+- name: http.repository.RepoPath
+  type: keyword
+  description: Path to the repository
+- name: http.repository.RepoSize
+  type: long
+  description: Size of the repository
+- name: http.repository.StorageMax
+  type: long
+  description: Max size of the storage
+- name: http.repository.Version
+  type: keyword
+  description: Storage version
+- name: service.address
+  type: keyword
+  description: Service address
+

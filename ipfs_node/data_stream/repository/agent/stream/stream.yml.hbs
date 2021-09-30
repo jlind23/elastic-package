@@ -1,0 +1,8 @@
+metricsets: ["json"]
+hosts:
+{{#each hosts}}
+  - {{this}}/api/v0/repo/stat
+{{/each}}
+period: {{period}}
+method: "POST"
+namespace: "repository"
