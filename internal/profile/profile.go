@@ -36,11 +36,14 @@ type configFile string
 // managedProfileFiles is the list of all files managed in a profile
 // If you create a new file that's managed by a profile, it needs to go in this list
 var managedProfileFiles = map[configFile]NewConfig{
-	KibanaConfigFile:              newKibanaConfig,
-	PackageRegistryDockerfileFile: newPackageRegistryDockerfile,
-	PackageRegistryConfigFile:     newPackageRegistryConfig,
-	SnapshotFile:                  newSnapshotFile,
-	PackageProfileMetaFile:        createProfileMetadata,
+	ElasticsearchConfigDefaultFile: newElasticsearchConfigDefault,
+	ElasticsearchConfig8xFile:      newElasticsearchConfig8x,
+	KibanaConfigDefaultFile:        newKibanaConfigDefault,
+	KibanaConfig8xFile:             newKibanaConfig8x,
+	PackageRegistryDockerfileFile:  newPackageRegistryDockerfile,
+	PackageRegistryConfigFile:      newPackageRegistryConfig,
+	SnapshotFile:                   newSnapshotFile,
+	PackageProfileMetaFile:         createProfileMetadata,
 }
 
 // NewConfigProfile creates a new config profile manager
@@ -240,7 +243,7 @@ func (profile Profile) localFilesChanged() (bool, error) {
 		if cfgName == PackageProfileMetaFile {
 			continue
 		}
-		changes, err := cfgFile.configfilesDiffer()
+		changes, err := cfgFile.configFilesDiffer()
 		if err != nil {
 			return false, errors.Wrap(err, "error checking config file")
 		}

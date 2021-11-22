@@ -6,6 +6,9 @@ package cobraext
 
 // Flag names and descriptions used by CLI commands.
 const (
+	BuildZipFlagName        = "zip"
+	BuildZipFlagDescription = "archive the built package"
+
 	CheckConditionFlagName        = "check-condition"
 	CheckConditionFlagDescription = "check if the condition is met for the package, but don't install the package (e.g. kibana.version=7.10.0)"
 
@@ -45,6 +48,9 @@ const (
 	ProfileFromFlagName        = "from"
 	ProfileFromFlagDescription = "copy profile from the specified existing profile"
 
+	ProfileFormatFlagName        = "format"
+	ProfileFormatFlagDescription = "format of the profiles list (table | json)"
+
 	NewestOnlyFlagName        = "newest-only"
 	NewestOnlyFlagDescription = "promote newest packages and remove old ones"
 
@@ -60,6 +66,9 @@ const (
 	ShowAllFlagName        = "all"
 	ShowAllFlagDescription = "show all deployed package revisions"
 
+	SignPackageFlagName        = "sign"
+	SignPackageFlagDescription = "sign package"
+
 	SkipPullRequestFlagName        = "skip-pull-request"
 	SkipPullRequestFlagDescription = "skip opening a new pull request"
 
@@ -74,6 +83,9 @@ const (
 
 	StackDumpOutputFlagName        = "output"
 	StackDumpOutputFlagDescription = "output location for the stack dump"
+
+	StatusKibanaVersionFlagName        = "kibana-version"
+	StatusKibanaVersionFlagDescription = "show packages for the given kibana version"
 
 	TestCoverageFlagName        = "test-coverage"
 	TestCoverageFlagDescription = "generate Cobertura test coverage reports"

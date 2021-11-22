@@ -25,18 +25,59 @@ func newSnapshotFile(_ string, profilePath string) (*simpleFile, error) {
 	}, nil
 }
 
-// KibanaConfigFile is the main kibana config file
-const KibanaConfigFile configFile = "kibana.config.yml"
+// KibanaConfigDefaultFile is the default kibana config file
+const KibanaConfigDefaultFile configFile = "kibana.config.default.yml"
 
-//go:embed _static/kibana_config.yml
-var kibanaConfigYml string
+//go:embed _static/kibana_config_default.yml
+var kibanaConfigDefaultYml string
 
-// newKibanaConfig returns a Managed Config
-func newKibanaConfig(_ string, profilePath string) (*simpleFile, error) {
+func newKibanaConfigDefault(_ string, profilePath string) (*simpleFile, error) {
 	return &simpleFile{
-		name: string(KibanaConfigFile),
-		path: filepath.Join(profilePath, profileStackPath, string(KibanaConfigFile)),
-		body: kibanaConfigYml,
+		name: string(KibanaConfigDefaultFile),
+		path: filepath.Join(profilePath, profileStackPath, string(KibanaConfigDefaultFile)),
+		body: kibanaConfigDefaultYml,
+	}, nil
+}
+
+// KibanaConfig8xFile is the Kibana config file for 8.x stack family
+const KibanaConfig8xFile configFile = "kibana.config.8x.yml"
+
+//go:embed _static/kibana_config_8x.yml
+var kibanaConfig8xYml string
+
+func newKibanaConfig8x(_ string, profilePath string) (*simpleFile, error) {
+	return &simpleFile{
+		name: string(KibanaConfig8xFile),
+		path: filepath.Join(profilePath, profileStackPath, string(KibanaConfig8xFile)),
+		body: kibanaConfig8xYml,
+	}, nil
+}
+
+// ElasticsearchConfigDefaultFile is the default Elasticsearch config file
+const ElasticsearchConfigDefaultFile configFile = "elasticsearch.config.default.yml"
+
+//go:embed _static/elasticsearch_config_default.yml
+var elasticsearchConfigDefaultYml string
+
+func newElasticsearchConfigDefault(_ string, profilePath string) (*simpleFile, error) {
+	return &simpleFile{
+		name: string(ElasticsearchConfigDefaultFile),
+		path: filepath.Join(profilePath, profileStackPath, string(ElasticsearchConfigDefaultFile)),
+		body: elasticsearchConfigDefaultYml,
+	}, nil
+}
+
+// ElasticsearchConfig8xFile is the Elasticsearch config file for 8.x stack family
+const ElasticsearchConfig8xFile configFile = "elasticsearch.config.8x.yml"
+
+//go:embed _static/elasticsearch_config_8x.yml
+var elasticsearchConfig8xYml string
+
+func newElasticsearchConfig8x(_ string, profilePath string) (*simpleFile, error) {
+	return &simpleFile{
+		name: string(ElasticsearchConfig8xFile),
+		path: filepath.Join(profilePath, profileStackPath, string(ElasticsearchConfig8xFile)),
+		body: elasticsearchConfig8xYml,
 	}, nil
 }
 

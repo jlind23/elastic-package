@@ -17,7 +17,9 @@ import (
 	"github.com/elastic/elastic-package/internal/logger"
 )
 
-var elasticAgentCompleteFirstSupportedVersion = semver.MustParse("7.15.0-SNAPSHOT")
+const stackVersion715 = "7.15.0-SNAPSHOT"
+
+var elasticAgentCompleteFirstSupportedVersion = semver.MustParse(stackVersion715)
 
 // ApplicationConfiguration represents the configuration of the elastic-package.
 type ApplicationConfiguration struct {
@@ -32,12 +34,18 @@ type stack struct {
 	ImageRefOverrides map[string]ImageRefs `yaml:"image_ref_overrides"`
 }
 
+func checkImageRefOverride(envVar, fallback string) string {
+	refOverride := os.Getenv(envVar)
+	return stringOrDefault(refOverride, fallback)
+}
+
 func (s stack) ImageRefOverridesForVersion(version string) ImageRefs {
-	refs, ok := s.ImageRefOverrides[version]
-	if !ok {
-		return ImageRefs{}
+	appConfigImageRefs := s.ImageRefOverrides[version]
+	return ImageRefs{
+		ElasticAgent:  checkImageRefOverride("ELASTIC_AGENT_IMAGE_REF_OVERRIDE", stringOrDefault(appConfigImageRefs.ElasticAgent, "")),
+		Elasticsearch: checkImageRefOverride("ELASTICSEARCH_IMAGE_REF_OVERRIDE", stringOrDefault(appConfigImageRefs.Elasticsearch, "")),
+		Kibana:        checkImageRefOverride("KIBANA_IMAGE_REF_OVERRIDE", stringOrDefault(appConfigImageRefs.Kibana, "")),
 	}
-	return refs
 }
 
 // ImageRefs stores Docker image references used to create the Elastic stack containers.
@@ -56,11 +64,6 @@ func (ir ImageRefs) AsEnv() []string {
 	return vars
 }
 
-// DefaultStackImageRefs function selects the appropriate set of Docker image references for the default stack version.
-func (ac *ApplicationConfiguration) DefaultStackImageRefs() ImageRefs {
-	return ac.StackImageRefs(DefaultStackVersion)
-}
-
 // StackImageRefs function selects the appropriate set of Docker image references for the given stack version.
 func (ac *ApplicationConfiguration) StackImageRefs(version string) ImageRefs {
 	refs := ac.c.Stack.ImageRefOverridesForVersion(version)
@@ -73,6 +76,10 @@ func (ac *ApplicationConfiguration) StackImageRefs(version string) ImageRefs {
 // selectElasticAgentImageName function returns the appropriate image name for Elastic-Agent depending on the stack version.
 // This is mandatory as "elastic-agent-complete" is available since 7.15.0-SNAPSHOT.
 func selectElasticAgentImageName(version string) string {
+	if version == "" { // as version is optional and can be empty
+		return elasticAgentImageName
+	}
+
 	v, err := semver.NewVersion(version)
 	if err != nil {
 		logger.Errorf("stack version not in semver format (value: %s): %v", v, err)
